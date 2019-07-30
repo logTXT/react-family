@@ -12,9 +12,9 @@ module.exports = {
   /*cacheDirectory是用来缓存编译结果，下次编译加速*/
   module: {
     rules: [{
-        test: /\.css$/,
-        use: ['babel-loader?cacheDirectory=true'],
-        include: path.join(__dirname, 'src')
+      test: /\.js$/,
+      use: ['babel-loader?cacheDirectory=true'],
+      include: path.join(__dirname, 'src')
     }]
-}
+  }
 };
