@@ -19,8 +19,23 @@ module.exports = {
         include: path.join(__dirname, "src")
       },
       {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   },
@@ -37,7 +52,6 @@ module.exports = {
       router: path.join(__dirname, "src/router"),
       actions: path.join(__dirname, "src/redux/actions"),
       reducers: path.join(__dirname, "src/redux/reducers")
-      // redux: path.join(__dirname, "src/redux")
     }
   }
 };
